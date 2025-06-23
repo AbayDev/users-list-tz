@@ -1,0 +1,32 @@
+.app-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #3b82f6;
+  /* синий */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.app-button:hover {
+  background-color: #2563eb;
+  /* чуть темнее */
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+}
+
+.app-button:active {
+  background-color: #1d4ed8;
+}
+
+.app-button:disabled {
+  background-color: #93c5fd;
+  cursor: not-allowed;
+  opacity: 0.6;
+}

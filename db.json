@@ -1,0 +1,151 @@
+{
+  "users": [
+    {
+      "id": 2,
+      "names": "Петров Пётр Петрович",
+      "email": "petrov@example.com",
+      "registrationDate": 1683024000,
+      "statusId": 1
+    },
+    {
+      "id": 3,
+      "names": "Сидорова Анна Викторовна",
+      "email": "sidorova.anna@mail.ru",
+      "registrationDate": 1672444800,
+      "statusId": 1
+    },
+    {
+      "id": 4,
+      "names": "Кузнецов Алексей Игоревич",
+      "email": "kuznecov.alex@gmail.com",
+      "registrationDate": 1696118400,
+      "statusId": 0
+    },
+    {
+      "id": 5,
+      "names": "Морозова Елена Сергеевна",
+      "email": "elena.morozova@yandex.ru",
+      "registrationDate": 1704067200,
+      "statusId": 1
+    },
+    {
+      "id": 6,
+      "names": "Новиков Артём Андреевич",
+      "email": "novikov.artem@example.com",
+      "registrationDate": 1651363200,
+      "statusId": 1
+    },
+    {
+      "id": 7,
+      "names": "Фёдорова Мария Алексеевна",
+      "email": "m.fedorova@mail.ru",
+      "registrationDate": 1627776000,
+      "statusId": 0
+    },
+    {
+      "id": 8,
+      "names": "Смирнов Николай Романович",
+      "email": "smirnov.nick@yandex.ru",
+      "registrationDate": 1711920000,
+      "statusId": 1
+    },
+    {
+      "id": 9,
+      "names": "Попова Наталья Дмитриевна",
+      "email": "popova.natalia@example.com",
+      "registrationDate": 1609459200,
+      "statusId": 1
+    },
+    {
+      "id": 10,
+      "names": "Васильев Иван Алексеевич",
+      "email": "",
+      "registrationDate": 1679788800,
+      "statusId": 0
+    },
+    {
+      "id": 11,
+      "names": "Григорьева Юлия Михайловна",
+      "email": "grigorieva.julia@mail.ru",
+      "registrationDate": 1648771200,
+      "statusId": 1
+    },
+    {
+      "id": 12,
+      "names": "Тарасов Максим Павлович",
+      "email": "max.tarasov@example.com",
+      "registrationDate": 1630454400,
+      "statusId": 1
+    },
+    {
+      "id": 13,
+      "names": "Алексеева Виктория Олеговна",
+      "email": "",
+      "registrationDate": 1598918400,
+      "statusId": 0
+    },
+    {
+      "id": 14,
+      "names": "Зайцев Денис Аркадьевич",
+      "email": "zaytsev.denis@domain.ru",
+      "registrationDate": 1716768000,
+      "statusId": 1
+    },
+    {
+      "id": 15,
+      "names": "Орлова Ксения Юрьевна",
+      "email": "ks.orlova@mail.ru",
+      "registrationDate": 1614556800,
+      "statusId": 1
+    },
+    {
+      "id": 16,
+      "names": "Ковалев Аркадий Семёнович",
+      "email": "arkady.kovalev@gmail.com",
+      "registrationDate": 1709424000,
+      "statusId": 0
+    },
+    {
+      "id": 17,
+      "names": "Макарова Татьяна Владиславовна",
+      "email": "makarova.tanya@mail.ru",
+      "registrationDate": 1669852800,
+      "statusId": 1
+    },
+    {
+      "id": 18,
+      "names": "Гаврилов Илья Евгеньевич",
+      "email": "",
+      "registrationDate": 1680393600,
+      "statusId": 1
+    },
+    {
+      "id": 19,
+      "names": "Беляева Вероника Ильинична",
+      "email": "veronika.belyaeva@yandex.ru",
+      "registrationDate": 1690848000,
+      "statusId": 0
+    },
+    {
+      "id": 20,
+      "names": "Егоров Владислав Никитич",
+      "email": "egorov.vlad@mail.ru",
+      "registrationDate": 1583020800,
+      "statusId": 1
+    },
+    {
+      "id": 21,
+      "names": "Романова Оксана Витальевна",
+      "email": "oksana.romanova@example.com",
+      "registrationDate": 1711584000,
+      "statusId": 1
+    },
+    {
+      "id": 22,
+      "names": "Мельников Евгений Артёмович",
+      "email": "",
+      "registrationDate": 1604188800,
+      "statusId": 0
+    }
+  ]
+}
