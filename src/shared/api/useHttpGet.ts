@@ -1,5 +1,5 @@
 import { ref } from 'vue'
-import type { AxiosInstance, AxiosRequestConfig } from 'axios'
+import type { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
 import { useSubscriptions } from '../composables/useSubscriptions'
 import { HTTP_CONFIG } from './httpService'
 
@@ -14,7 +14,8 @@ export function useHttpGet<T = unknown>() {
   const loading = ref(false)
   const error = ref<unknown | null>(null)
   const data = ref<T | null>(null)
-  const doneEvent = useSubscriptions<T>()
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const doneEvent = useSubscriptions<AxiosResponse<T, any>>()
   const errorEvent = useSubscriptions<unknown>()
 
   // Используемый экземпляр Axios
@@ -34,7 +35,7 @@ export function useHttpGet<T = unknown>() {
 
       // Успешный ответ
       data.value = response.data
-      doneEvent.emit(response.data)
+      doneEvent.emit(response)
     } catch (err) {
       // Обработка ошибки
       error.value = err
