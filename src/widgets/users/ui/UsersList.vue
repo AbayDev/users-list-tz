@@ -2,13 +2,13 @@
   <PageContainer>
     <PageHeader>
       <PageTitle> Список пользователей </PageTitle>
-      <ListSearchInput v-model="usersStore.search" placeholder="Найти..." />
+      <ListSearchInput v-model="store.search" placeholder="Найти..." />
     </PageHeader>
-    <PageBody>
-      <UsersTable :users="usersStore.users" />
+    <PageBody :is-loading="store.loading">
+      <UsersTable :users="store.users" />
     </PageBody>
     <PageFooter>
-      <AppPagination v-model="usersStore.pageIndex" :totalPage="usersStore.totalPage" />
+      <AppPagination v-model="store.pageIndex" :totalPage="store.totalPage" />
     </PageFooter>
   </PageContainer>
 </template>
@@ -20,8 +20,20 @@ import { useUsersListStore } from '../store/useUsersListStore'
 import PageBody from '@/shared/ui/PageContainer/ui/PageBody.vue'
 import { AppPagination } from '@/shared/ui/AppPagination'
 import { ListSearchInput } from '@/shared/ui/ListSearchInput'
+import { useUsersListRouteQuery } from '../composables/useUsersListRouteQuery'
+import { watch } from 'vue'
+import { debounce } from '@/shared/lib/debounce'
 
-const usersStore = useUsersListStore()
+const store = useUsersListStore()
+const { applyRouteQuery, saveRouteQuery } = useUsersListRouteQuery()
 
-usersStore.getUsers()
+applyRouteQuery()
+store.getUsers()
+
+/**
+ * при изменении фильтра и страницу, сохраняем в `route.query`
+ * что бы запомнить выбор пользователя
+ * оптимизируем изменения роута с помощью `debounce`
+ */
+watch([() => store.search, () => store.pageIndex], debounce(saveRouteQuery, 300))
 </script>

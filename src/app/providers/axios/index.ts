@@ -7,8 +7,14 @@ import axios from 'axios'
 export const initAxios = () => {
   const instance = axios.create({
     baseURL: import.meta.env.VITE_API_URL,
-    // ставим исскуственную задержку, имитация работы с сервером
-    timeout: 1000,
+  })
+
+  const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
+
+  instance.interceptors.request.use(async (config) => {
+    // Задержка перед каждым запросом
+    await delay(1500)
+    return config
   })
 
   provideHTTPService(instance)

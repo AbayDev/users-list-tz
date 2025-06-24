@@ -2,4 +2,9 @@
   flex: 1;
   overflow: auto;
   position: relative;
+  transition: opacity .3s ease;
+
+  &_loading {
+    opacity: 0.5;
+  }
 }

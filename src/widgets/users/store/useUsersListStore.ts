@@ -5,7 +5,7 @@ import { debounce } from '@/shared/lib/debounce'
 import { defineStore } from 'pinia'
 import { computed, ref, watch } from 'vue'
 
-const USERS_PER_PAGE = 10
+const USERS_LIMIT = 10
 
 export const useUsersListStore = defineStore('users-list', () => {
   const users = ref<User[]>([])
@@ -16,16 +16,17 @@ export const useUsersListStore = defineStore('users-list', () => {
   const { get, loading, onDone } = useHttpGet<User[]>()
 
   const totalPage = computed(() => {
-    return calculateTotalPages(total.value, USERS_PER_PAGE)
+    return calculateTotalPages(total.value, USERS_LIMIT)
   })
 
   const getUsers = () => {
     const params: Record<string, unknown> = {
       _page: pageIndex.value + 1,
-      _limit: USERS_PER_PAGE,
+      _limit: USERS_LIMIT,
     }
 
     if (search.value) {
+      // поиск по всем текстовым значениям
       params.q = search.value
     }
 
@@ -41,6 +42,13 @@ export const useUsersListStore = defineStore('users-list', () => {
     }
   })
 
+  // при измении поиска, нужно поставить первую страницу
+  watch(search, () => {
+    pageIndex.value = 0
+  })
+
+  // при изменении поиска или страницы отправляем запрос
+  // оптимизация с помощью debounce
   watch(
     [search, pageIndex],
     debounce(() => {
