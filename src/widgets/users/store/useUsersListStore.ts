@@ -6,10 +6,6 @@ import { defineStore } from 'pinia'
 import { computed, ref, watch } from 'vue'
 
 const USERS_PER_PAGE = 10
-type UsersResponse = {
-  data: User[]
-  items: number
-}
 
 export const useUsersListStore = defineStore('users-list', () => {
   const users = ref<User[]>([])
@@ -17,25 +13,31 @@ export const useUsersListStore = defineStore('users-list', () => {
   const pageIndex = ref(0)
   const total = ref(0)
 
-  const { get, loading, onDone } = useHttpGet<UsersResponse>()
+  const { get, loading, onDone } = useHttpGet<User[]>()
 
   const totalPage = computed(() => {
     return calculateTotalPages(total.value, USERS_PER_PAGE)
   })
 
   const getUsers = () => {
+    const params: Record<string, unknown> = {
+      _page: pageIndex.value + 1,
+      _limit: USERS_PER_PAGE,
+    }
+
+    if (search.value) {
+      params.q = search.value
+    }
+
     get('users', {
-      params: {
-        _page: pageIndex.value + 1,
-        _per_page: USERS_PER_PAGE,
-      },
+      params,
     })
   }
 
   onDone((result) => {
     if (result.data) {
-      users.value = result.data.data
-      total.value = Number(result.data.items)
+      users.value = result.data
+      total.value = Number(result.headers?.['x-total-count'])
     }
   })
 

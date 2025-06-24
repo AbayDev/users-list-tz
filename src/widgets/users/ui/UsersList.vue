@@ -2,6 +2,7 @@
   <PageContainer>
     <PageHeader>
       <PageTitle> Список пользователей </PageTitle>
+      <ListSearchInput v-model="usersStore.search" placeholder="Найти..." />
     </PageHeader>
     <PageBody>
       <UsersTable :users="usersStore.users" />
@@ -18,6 +19,7 @@ import UsersTable from './UsersTable.vue'
 import { useUsersListStore } from '../store/useUsersListStore'
 import PageBody from '@/shared/ui/PageContainer/ui/PageBody.vue'
 import { AppPagination } from '@/shared/ui/AppPagination'
+import { ListSearchInput } from '@/shared/ui/ListSearchInput'
 
 const usersStore = useUsersListStore()
 
