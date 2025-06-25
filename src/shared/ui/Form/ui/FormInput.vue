@@ -4,12 +4,9 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import type { FormInputProps } from '../model'
 
-type Props = {
-  isError?: boolean
-}
-
-const props = defineProps<Props>()
+const props = defineProps<FormInputProps>()
 
 const modelValue = defineModel()
 

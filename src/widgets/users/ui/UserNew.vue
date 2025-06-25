@@ -22,6 +22,14 @@
               @update:model-value="onChange('email')"
             />
           </FormField>
+          <FormField :error="errors.statusId">
+            <FormLabel> Статус </FormLabel>
+            <UserStatusSelect
+              v-model="form.statusId"
+              :is-error="!!errors.statusId"
+              @update:model-value="onChange('statusId')"
+            />
+          </FormField>
           <AppButtonList>
             <AppButton type="submit" title="Создать пользователя" :disabled="loading">
               Сохранить
@@ -45,7 +53,7 @@
 import { PageBody, PageContainer, PageHeader, PageTitle } from '@/shared/ui/PageContainer'
 import { FormBase, FormContainer, FormField, FormInput, FormLabel } from '@/shared/ui/Form'
 import { ref } from 'vue'
-import { UserStatusId, type UserEditableFields } from '@/entities/users'
+import { UserStatusId, UserStatusSelect, type UserEditableFields } from '@/entities/users'
 import { useValidation } from '@/shared/composables/validation'
 import { AppButton, AppButtonList } from '@/shared/ui/AppButton'
 import { useRouter } from 'vue-router'
@@ -73,6 +81,11 @@ const { errors, clearErrors, validate, onChange } = useValidation({
       },
     ],
     names: [
+      {
+        type: 'required',
+      },
+    ],
+    statusId: [
       {
         type: 'required',
       },
