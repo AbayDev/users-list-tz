@@ -4,8 +4,14 @@
       <PageTitle> Пользователь </PageTitle>
       <AppButtonList>
         <AppButton @click="onBack"> Назад </AppButton>
-        <AppButton @click="onEdit"> Редактировать </AppButton>
-        <AppButton> Удалить </AppButton>
+        <AppButton :disabled="loading" @click="onEdit"> Редактировать </AppButton>
+        <AppButtonDelete
+          :disabled="loading"
+          title="Удалить пользователя"
+          confirm-message="Вы действительно хотите удалить пользователя?"
+          @delete-confirmed="onDeleteConfirmed"
+        >
+        </AppButtonDelete>
       </AppButtonList>
     </PageHeader>
     <PageBody :is-loading="loading">
@@ -37,15 +43,21 @@
 
 <script setup lang="ts">
 import { PageBody, PageContainer, PageHeader, PageTitle } from '@/shared/ui/PageContainer'
-import { UserStatus, useUserDetail } from '@/entities/users'
+import { UserStatus, useUserDelete, useUserDetail } from '@/entities/users'
 import { useRoute, useRouter } from 'vue-router'
 import { DataField, DataList } from '@/shared/ui/DataField'
-import { AppButton, AppButtonList } from '@/shared/ui/AppButton'
+import { AppButton, AppButtonDelete, AppButtonList } from '@/shared/ui/AppButton'
+import { computed } from 'vue'
 
 const route = useRoute()
 const router = useRouter()
 
-const { getUserById, loading, user } = useUserDetail()
+const { getUserById, loading: fetchLoading, user } = useUserDetail()
+const { deleteUserById, loading: deleteLoading, onDone: onDeleteDone } = useUserDelete()
+
+const loading = computed(() => {
+  return fetchLoading.value || deleteLoading.value
+})
 
 const getUser = () => {
   if (route.name === 'UserDetail' && typeof route.params.id === 'string') {
@@ -69,6 +81,14 @@ const onEdit = () => {
     })
   }
 }
+
+const onDeleteConfirmed = () => {
+  if (route.name === 'UserDetail') {
+    deleteUserById(Number(route.params.id))
+  }
+}
+
+onDeleteDone(onBack)
 
 getUser()
 </script>

@@ -15,13 +15,6 @@
       "statusId": 1
     },
     {
-      "id": 4,
-      "names": "Кузнецов Алексей Игоревич",
-      "email": "kuznecov.alex@gmail.com",
-      "registrationDate": 1696118400,
-      "statusId": 0
-    },
-    {
       "id": 5,
       "names": "Морозова Елена Сергеевна",
       "email": "elena.morozova@yandex.ru",
@@ -34,13 +27,6 @@
       "email": "novikov.artem@example.com",
       "registrationDate": 1651363200,
       "statusId": 1
-    },
-    {
-      "id": 7,
-      "names": "Фёдорова Мария Алексеевна",
-      "email": "m.fedorova@mail.ru",
-      "registrationDate": 1627776000,
-      "statusId": 0
     },
     {
       "id": 8,

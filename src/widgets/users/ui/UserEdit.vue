@@ -97,9 +97,14 @@ const onSubmit = () => {
 }
 
 const onCancel = () => {
-  router.push({
-    name: 'Users',
-  })
+  if (route.name === 'UserEdit') {
+    router.push({
+      name: 'UserDetail',
+      params: {
+        id: route.params.id,
+      },
+    })
+  }
 }
 
 getUser()

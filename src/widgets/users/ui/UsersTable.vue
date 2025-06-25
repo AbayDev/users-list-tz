@@ -63,6 +63,11 @@ const onRedirect = (userId: number) => {
 }
 
 const onEdit = (userId: number) => {
-  // TODO redirect to edit user
+  router.push({
+    name: 'UserEdit',
+    params: {
+      id: userId,
+    },
+  })
 }
 </script>
