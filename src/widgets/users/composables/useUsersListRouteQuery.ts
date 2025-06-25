@@ -11,7 +11,7 @@ export const useUsersListRouteQuery = () => {
   const route = useRoute()
 
   /**
-   * Применить значения в `route.query`
+   * Применить значения в `route.query` к фильтру и страницу
    */
   const applyRouteQuery = () => {
     if (route.query.search && typeof route.query.search === 'string') {

@@ -1,3 +1,5 @@
 export type { User } from './model/User'
-export type { UserStatusId } from './model/UserStatusId'
+export { UserStatusId } from './model/UserStatusId'
+export type { UserEditableFields } from './model/UserEditableFields'
 export { default as UserStatus } from './ui/UserStatus.vue'
+export { useUserDetail } from './composables/useUserDetail'

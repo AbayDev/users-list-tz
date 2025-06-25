@@ -23,8 +23,8 @@
         </AppTableData>
         <AppTableData>
           <AppButtonList>
-            <AppButton> Перейти </AppButton>
-            <AppButton> Редактировать </AppButton>
+            <AppButton @click="onRedirect(user.id)"> Перейти </AppButton>
+            <AppButton @click="onEdit(user.id)"> Редактировать </AppButton>
           </AppButtonList>
         </AppTableData>
       </AppTableRow>
@@ -43,10 +43,26 @@ import {
   AppTableData,
 } from '@/shared/ui/TableList'
 import { AppButton, AppButtonList } from '@/shared/ui/AppButton'
+import { useRouter } from 'vue-router'
 
 type Props = {
   users: User[]
 }
 
 defineProps<Props>()
+
+const router = useRouter()
+
+const onRedirect = (userId: number) => {
+  router.push({
+    name: 'UserDetail',
+    params: {
+      id: userId,
+    },
+  })
+}
+
+const onEdit = (userId: number) => {
+  // TODO redirect to edit user
+}
 </script>

@@ -5,7 +5,7 @@ import { debounce } from '@/shared/lib/debounce'
 import { defineStore } from 'pinia'
 import { computed, ref, watch } from 'vue'
 
-const USERS_LIMIT = 10
+const USERS_LIMIT = 20
 
 export const useUsersListStore = defineStore('users-list', () => {
   const users = ref<User[]>([])

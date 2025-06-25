@@ -4,6 +4,10 @@ html {
   font-family: 'Roboto';
 }
 
+:root {
+  --form-error-color: tomato;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;

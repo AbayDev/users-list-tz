@@ -1,1 +1,5 @@
+export { default as FormBase } from './ui/FormBase.vue'
+export { default as FormContainer } from './ui/FormContainer.vue'
 export { default as FormInput } from './ui/FormInput.vue'
+export { default as FormField } from './ui/FormField.vue'
+export { default as FormLabel } from './ui/FormLabel.vue'

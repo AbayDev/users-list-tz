@@ -19,4 +19,14 @@
   &:placeholder {
     color: #9ca3af;
   }
+
+
+  &_error {
+    border-color: var(--form-error-color);
+
+    &:focus {
+      border-color: var(--form-error-color);
+      box-shadow: 0 0 0 3px rgba(246, 59, 59, 0.2);
+    }
+  }
 }
